@@ -1,0 +1,26 @@
+.container {
+  background-color: #ebebeb;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 1200px;
+  height: 800px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  &-content {
+    display: inherit;
+    flex: 1 1 33%;
+    justify-content: center;
+  }
+}
+
+.paginator {
+  display: flex;
+  justify-content: center;
+}

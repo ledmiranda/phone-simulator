@@ -1,0 +1,22 @@
+<div class="item">
+  <div *ngIf="!isEditing; else editApplicationForm" class="item-info">
+    <div class="item-info-controls">
+      <span (click)="showEditForm(true)">
+        <mat-icon aria-hidden="false" fontIcon="edit"></mat-icon>
+      </span>
+    </div>
+    <div class="item-info-content" (click)="showContactInfo()">
+      <span class="name">{{ application.name }}</span>
+      <span class="contact" *ngIf="!hideContactInfo">{{
+        application.contactInfo
+      }}</span>
+      <span class="version">{{ application.version }}</span>
+    </div>
+  </div>
+  <ng-template #editApplicationForm>
+    <app-application-edit
+      [application]="application"
+      (closeEditForm)="onCloseEditForm()"
+    ></app-application-edit>
+  </ng-template>
+</div>

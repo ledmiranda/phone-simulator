@@ -1,0 +1,21 @@
+.form {
+  display: flex;
+  flex-direction: row;
+
+  &-field {
+    margin: 18px 18px 18px 0;
+
+    label {
+      font-weight: bold;
+    }
+
+    .error {
+      color: red;
+    }
+  }
+
+  &-controls {
+    display: inherit;
+    align-items: center;
+  }
+}

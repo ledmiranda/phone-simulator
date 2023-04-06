@@ -1,0 +1,19 @@
+<div class="container">
+  <app-spinner [isLoading]="isLoading$ | async"></app-spinner>
+  <div class="list" *ngIf="!(isLoading$ | async)">
+    <div class="list-content" *ngFor="let app of paginatedApplications">
+      <app-aplication-item [application]="app"></app-aplication-item>
+    </div>
+  </div>
+</div>
+<div class="paginator" *ngIf="!(isLoading$ | async)">
+  <pagination
+    [boundaryLinks]="false"
+    [totalItems]="applications.length"
+    previousText="&laquo;"
+    nextText="&raquo;"
+    [itemsPerPage]="9"
+    (pageChanged)="pageChanged($event)"
+  >
+  </pagination>
+</div>

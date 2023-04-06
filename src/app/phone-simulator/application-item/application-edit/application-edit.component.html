@@ -1,0 +1,39 @@
+<div class="edit-form">
+  <div class="edit-form-controls">
+    <span (click)="saveEditApplication()">
+      <mat-icon aria-hidden="false" fontIcon="check"></mat-icon>
+    </span>
+    <span (click)="closeEdit()">
+      <mat-icon aria-hidden="false" fontIcon="close"></mat-icon>
+    </span>
+  </div>
+  <form [formGroup]="editForm">
+    <div class="edit-form-field">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        id="name"
+        formControlName="name"
+        [ngClass]="{'input-error': !!form['name'].errors?.['required']}"
+      />
+    </div>
+    <div class="edit-form-field">
+      <label for="version">Version</label>
+      <input
+        type="text"
+        id="version"
+        formControlName="version"
+        [ngClass]="{'input-error': !!form['version'].errors?.['required'] || !!form['version'].errors?.['patter']}"
+      />
+    </div>
+    <div class="edit-form-field">
+      <label for="contact">Contact</label>
+      <input
+        type="text"
+        id="contact"
+        formControlName="contact"
+        [ngClass]="{'input-error': !!form['contact'].errors?.['required']}"
+      />
+    </div>
+  </form>
+</div>
