@@ -38,23 +38,18 @@ export class ApplicationFormComponent implements OnInit {
 
   public async addApplication() {
     this.formSubmitted = true;
-    try {
-      if (this.appForm.valid) {
-        const newApplication: Application = {
-          id: `${Math.floor(Math.random() * 100)}`,
-          name: this.appForm.get('name')?.value,
-          version: this.appForm.get('version')?.value,
-          contactInfo: this.appForm.get('contact')?.value,
-        };
+    if (this.appForm.valid) {
+      const newApplication: Application = {
+        id: `${Math.floor(Math.random() * 100)}`,
+        name: this.appForm.get('name')?.value,
+        version: this.appForm.get('version')?.value,
+        contactInfo: this.appForm.get('contact')?.value,
+      };
 
-        await this.applicationService.addApplication(newApplication);
-        await this.applicationService.getApplicationsList();
-        this.appForm.reset();
-        this.formSubmitted = false;
-        console.log(this.formSubmitted);
-      }
-    } catch (error) {
-      console.log(error);
+      await this.applicationService.addApplication(newApplication);
+      await this.applicationService.getApplicationsList();
+      this.appForm.reset();
+      this.formSubmitted = false;
     }
   }
 }
